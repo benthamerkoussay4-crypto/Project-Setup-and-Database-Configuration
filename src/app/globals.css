@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f6f3eb;
+  --warm-gray: #eae6dc;
+  --ink: #1d2823;
+  --forest: #204639;
+  --pale-green: #dfe9df;
+  --sage: #c9d2c3;
+  --terracotta: #bd684d;
+  --gold: #b58a42;
+  --soft-gold: #ead9ad;
+  --muted: #65716b;
+  --soft-muted: #a5aaa3;
+  --line: #dedbd1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #c9d8ca;
+  color: #16362c;
+}
+
+.font-serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero-glow {
+  background: radial-gradient(circle, rgba(230, 210, 161, 0.52) 0%, rgba(230, 210, 161, 0.18) 44%, transparent 70%);
+}
+
+.book-lines {
+  transform: rotate(-6deg) translateY(18%);
+  border-radius: 48% 48% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 100%, transparent 0 49%, rgba(57, 83, 68, 0.11) 49.5% 50%, transparent 50.5%),
+    repeating-radial-gradient(ellipse at 50% 110%, transparent 0 38px, rgba(57, 83, 68, 0.08) 39px 40px);
+}
+
+.status-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.section-label {
+  color: var(--terracotta);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.foundation-card {
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.foundation-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 22px 55px rgba(42, 53, 46, 0.09);
+}
+
+.icon-tile {
+  transition: transform 220ms ease;
+}
+
+.foundation-card:hover .icon-tile {
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.icon-terracotta {
+  background: #f1ddd5;
+  color: #a9573e;
+}
+
+.icon-green {
+  background: var(--pale-green);
+  color: var(--forest);
+}
+
+.icon-gold {
+  background: #eee2c6;
+  color: #9c702b;
+}
+
+@media (max-width: 640px) {
+  .book-lines {
+    bottom: -10%;
+    right: -28%;
+    width: 90%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
